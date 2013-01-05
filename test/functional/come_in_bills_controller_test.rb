@@ -3,6 +3,7 @@ require 'test_helper'
 class ComeInBillsControllerTest < ActionController::TestCase
   setup do
     @come_in_bill = come_in_bills(:one)
+    @come_in_type = ComeInType.new(:name => "wage")
   end
 
   test "should get index" do
@@ -18,7 +19,7 @@ class ComeInBillsControllerTest < ActionController::TestCase
 
   test "should create come_in_bill" do
     assert_difference('ComeInBill.count') do
-      post :create, come_in_bill: { billdate: @come_in_bill.billdate, money: @come_in_bill.money, remarks: @come_in_bill.remarks }
+      post :create, come_in_bill: { billdate: @come_in_bill.billdate, money: @come_in_bill.money, remarks: @come_in_bill.remarks}, come_in_type: {id: @come_in_type.id }
     end
 
     assert_redirected_to come_in_bill_path(assigns(:come_in_bill))

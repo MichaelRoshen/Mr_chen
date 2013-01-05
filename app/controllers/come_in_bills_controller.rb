@@ -3,7 +3,6 @@ class ComeInBillsController < ApplicationController
   # GET /come_in_bills.json
   def index
     @come_in_bills = ComeInBill.all
-
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @come_in_bills }
@@ -25,7 +24,6 @@ class ComeInBillsController < ApplicationController
   # GET /come_in_bills/new.json
   def new
     @come_in_bill = ComeInBill.new
-
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @come_in_bill }
@@ -41,7 +39,7 @@ class ComeInBillsController < ApplicationController
   # POST /come_in_bills.json
   def create
     @come_in_bill = ComeInBill.new(params[:come_in_bill])
-
+    @come_in_bill.come_in_type = ComeInType.find(params[:come_in_type][:id])
     respond_to do |format|
       if @come_in_bill.save
         format.html { redirect_to @come_in_bill, notice: 'Come in bill was successfully created.' }
@@ -57,7 +55,7 @@ class ComeInBillsController < ApplicationController
   # PUT /come_in_bills/1.json
   def update
     @come_in_bill = ComeInBill.find(params[:id])
-
+    @come_in_bill.come_in_type = ComeInType.find(params[:come_in_type][:id])
     respond_to do |format|
       if @come_in_bill.update_attributes(params[:come_in_bill])
         format.html { redirect_to @come_in_bill, notice: 'Come in bill was successfully updated.' }

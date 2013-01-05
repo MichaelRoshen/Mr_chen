@@ -1,33 +1,32 @@
-<%= form_for(@cost_bill) do |f| %>
-  <% if @cost_bill.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@cost_bill.errors.count, "error") %> prohibited this cost_bill from being saved:</h2>
-
-      <ul>
-      <% @cost_bill.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+<%= form_for @cost_bill, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :money, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :money, :class => 'text_field' %>
     </div>
-  <% end %>
+  </div>
+  <div class="control-group">
+    <%= f.label :remarks, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :remarks, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :billdate, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.date_select :billdate, :class => 'date_select' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :cost_type_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= select("cost_type", "id", CostType.all.collect {|c| [ c.name, c.id ] }, { :prompt => "--Select cost_type--"}, {:class => 'text_field'}) %>
+    </div>
+  </div>
 
-  <div class="field">
-    <%= f.label :money %><br />
-    <%= f.text_field :money %>
-  </div>
-  <div class="field">
-    <%= f.label :remarks %><br />
-    <%= f.text_field :remarks %>
-  </div>
-  <div class="field">
-    <%= f.label :billdate %><br />
-    <%= f.date_select :billdate %>
-  </div>
-  <div class="field">
-    <%= f.label :cost_type %><br />
-    <%= f.text_field :cost_type %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                cost_bills_path, :class => 'btn' %>
   </div>
 <% end %>

@@ -41,7 +41,7 @@ class CostBillsController < ApplicationController
   # POST /cost_bills.json
   def create
     @cost_bill = CostBill.new(params[:cost_bill])
-
+    @cost_bill.cost_type = CostType.find(params[:cost_type][:id])
     respond_to do |format|
       if @cost_bill.save
         format.html { redirect_to @cost_bill, notice: 'Cost bill was successfully created.' }
@@ -57,7 +57,7 @@ class CostBillsController < ApplicationController
   # PUT /cost_bills/1.json
   def update
     @cost_bill = CostBill.find(params[:id])
-
+    @cost_bill.cost_type = CostType.find(params[:cost_type][:id])
     respond_to do |format|
       if @cost_bill.update_attributes(params[:cost_bill])
         format.html { redirect_to @cost_bill, notice: 'Cost bill was successfully updated.' }
