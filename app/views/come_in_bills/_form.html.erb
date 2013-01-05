@@ -1,0 +1,33 @@
+<%= form_for(@come_in_bill) do |f| %>
+  <% if @come_in_bill.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@come_in_bill.errors.count, "error") %> prohibited this come_in_bill from being saved:</h2>
+
+      <ul>
+      <% @come_in_bill.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :money %><br />
+    <%= f.text_field :money %>
+  </div>
+  <div class="field">
+    <%= f.label :remarks %><br />
+    <%= f.text_field :remarks %>
+  </div>
+  <div class="field">
+    <%= f.label :billdate %><br />
+    <%= f.date_select :billdate %>
+  </div>
+  <div class="field">
+    <%= f.label :come_in_type %><br />
+    <%= f.text_field :come_in_type %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

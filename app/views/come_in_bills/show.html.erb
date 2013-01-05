@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Money:</b>
+  <%= @come_in_bill.money %>
+</p>
+
+<p>
+  <b>Remarks:</b>
+  <%= @come_in_bill.remarks %>
+</p>
+
+<p>
+  <b>Billdate:</b>
+  <%= @come_in_bill.billdate %>
+</p>
+
+<p>
+  <b>Come in type:</b>
+  <%= @come_in_bill.come_in_type %>
+</p>
+
+
+<%= link_to 'Edit', edit_come_in_bill_path(@come_in_bill) %> |
+<%= link_to 'Back', come_in_bills_path %>

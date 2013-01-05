@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  money: 9.99
+  remarks: MyString
+  billdate: 2013-01-04
+  cost_type: 
+
+two:
+  money: 9.99
+  remarks: MyString
+  billdate: 2013-01-04
+  cost_type: 

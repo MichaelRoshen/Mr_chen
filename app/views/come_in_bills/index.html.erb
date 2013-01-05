@@ -1,0 +1,29 @@
+<h1>Listing come_in_bills</h1>
+
+<table>
+  <tr>
+    <th>Money</th>
+    <th>Remarks</th>
+    <th>Billdate</th>
+    <th>Come in type</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @come_in_bills.each do |come_in_bill| %>
+  <tr>
+    <td><%= come_in_bill.money %></td>
+    <td><%= come_in_bill.remarks %></td>
+    <td><%= come_in_bill.billdate %></td>
+    <td><%= come_in_bill.come_in_type %></td>
+    <td><%= link_to 'Show', come_in_bill %></td>
+    <td><%= link_to 'Edit', edit_come_in_bill_path(come_in_bill) %></td>
+    <td><%= link_to 'Destroy', come_in_bill, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Come in bill', new_come_in_bill_path %>

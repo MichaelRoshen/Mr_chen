@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Money:</b>
+  <%= @cost_bill.money %>
+</p>
+
+<p>
+  <b>Remarks:</b>
+  <%= @cost_bill.remarks %>
+</p>
+
+<p>
+  <b>Billdate:</b>
+  <%= @cost_bill.billdate %>
+</p>
+
+<p>
+  <b>Cost type:</b>
+  <%= @cost_bill.cost_type %>
+</p>
+
+
+<%= link_to 'Edit', edit_cost_bill_path(@cost_bill) %> |
+<%= link_to 'Back', cost_bills_path %>
