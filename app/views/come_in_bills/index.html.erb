@@ -5,22 +5,18 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:money) %></th>
-      <th><%= model_class.human_attribute_name(:remarks) %></th>
-      <th><%= model_class.human_attribute_name(:billdate) %></th>
       <th><%= model_class.human_attribute_name(:come_in_type_id) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%= model_class.human_attribute_name(:money) %></th>
+      <th><%= model_class.human_attribute_name(:billdate) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
   <tbody>
     <% @come_in_bills.each do |come_in_bill| %>
       <tr>
-        <td><%= come_in_bill.money %></td>
-        <td><%= come_in_bill.remarks %></td>
-        <td><%= come_in_bill.billdate %></td>
         <td><%= come_in_bill.come_in_type.name %></td>
-        <td><%=l come_in_bill.created_at %></td>
+        <td><%= come_in_bill.money %></td>
+        <td><%= come_in_bill.billdate %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_come_in_bill_path(come_in_bill), :class => 'btn btn-mini' %>

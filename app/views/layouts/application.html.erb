@@ -16,12 +16,11 @@
         <span class="icon-bar"></span>  
         <span class="icon-bar"></span>  
       </a>  
-      <a class="brand" href="#">Mr_chen</a>  
+       <%= link_to "MichaelRoshen", {:controller => "home", :action => "index" }, {:class => "brand"} %>
       <div class="nav-collapse">  
         <ul class="nav">  
-          <li><%= link_to "我的博客"%></li>  
+          <li><%= link_to "我的博客" %></li>  
           <li><%= link_to "我的钱包" %></li>  
-          <li><%= link_to "Contact Us" %></li>  
         </ul>  
       </div>  
     </div>  
@@ -30,15 +29,19 @@
 
 <div class="container">  
   <div class="row">  
-    <div class="span9"><%= yield %></div>  
-    <div class="span3">  
-      <h2>Personal Infomation</h2>  
+    <div class="span1"></div>
+    <div class="span3">
+      <h4>Personal Infomation</h4>  
       <ul>
-      	<li>name: MichaelRoshen</li>
-      	<li>work: IT</li>
-      	<li>address: Beijing</li>
+        <li>name: MichaelRoshen</li>
+        <li>work: IT</li>
+        <li>address: Beijing</li>
       </ul>
+      </div>  
+    <div class="span7">  
+      <%= yield %>
     </div>  
+    <div class="span1"></div>
   </div>  
 </div>  
 
