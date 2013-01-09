@@ -6,12 +6,12 @@
 <dl class="dl-horizontal">
   <dt><strong><%= model_class.human_attribute_name(:money) %>:</strong></dt>
   <dd><%= @come_in_bill.money %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:remarks) %>:</strong></dt>
-  <dd><%= @come_in_bill.remarks %></dd>
   <dt><strong><%= model_class.human_attribute_name(:billdate) %>:</strong></dt>
   <dd><%= @come_in_bill.billdate %></dd>
   <dt><strong><%= model_class.human_attribute_name(:come_in_type_id) %>:</strong></dt>
-  <dd><%= @come_in_bill.come_in_type_id %></dd>
+  <dd><%= @come_in_bill.come_in_type.name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:remarks) %>:</strong></dt>
+  <dd><%= @come_in_bill.remarks %></dd>
 </dl>
 
 <div class="form-actions">

@@ -13,7 +13,6 @@ class ComeInBillsController < ApplicationController
   # GET /come_in_bills/1.json
   def show
     @come_in_bill = ComeInBill.find(params[:id])
-
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @come_in_bill }

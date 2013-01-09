@@ -5,22 +5,28 @@
       <%= f.text_field :money, :class => 'text_field' %>
     </div>
   </div>
+
+  <div class="control-group">
+          <%= f.label :billdate, :class => 'control-label' %>
+          <div class="controls">
+            <div class="input-append date" id="dp2" data-date="12-02-2012" data-date-format="yyyy/mm/dd">
+              <%= f.text_field :billdate, :class => 'text_field', :readonly => 'readonly' %>
+              <span class="add-on"><i class="icon-calendar"> </i></span>
+            </div>
+          </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label :come_in_type_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= select("come_in_type", "id", ComeInType.all.collect {|c| [ c.name, c.id ] }, { :prompt => "--Select come_in_type--", :selected => @come_in_bill.come_in_type_id}, {:class => 'text_field'}) %>
+    </div>
+  </div>
+
   <div class="control-group">
     <%= f.label :remarks, :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :remarks, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :billdate, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.date_select :billdate, :class => 'date_select' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :come_in_type_id, :class => 'control-label' %>
-    <div class="controls">
-      <%= select("come_in_type", "id", ComeInType.all.collect {|c| [ c.name, c.id ] }, { :prompt => "--Select come_in_type--"}, {:class => 'text_field'}) %>
     </div>
   </div>
 
