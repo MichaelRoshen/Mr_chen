@@ -1,4 +1,7 @@
 MrChen::Application.routes.draw do
+  
+  get "purse/setup_types"
+  get "purse/account"
   get "home/index"
 
   resources :cost_bills

@@ -1,0 +1,39 @@
+<div class="tabbable"> <!-- Only required for left/right tabs -->
+  <ul class="nav nav-tabs">
+    <li class="active"><a href="#tab1" data-toggle="tab">收入类型</a></li>
+    <li><a href="#tab2" data-toggle="tab">支出类型</a></li>
+  </ul>
+  <div class="tab-content">
+
+    <div class="tab-pane active" id="tab1">
+     <%= form_for @come_in_type, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label "类型", :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :name, :class => 'text_field' %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit "新增类型", :class => 'btn btn-primary' %>
+  </div>
+<% end %>
+    </div>
+   
+    <div class="tab-pane" id="tab2">
+          <%= form_for @cost_type, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label "类型", :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :name, :class => 'text_field' %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit "新增类型", :class => 'btn btn-primary' %>
+  </div>
+<% end %>    
+    </div>
+  </div>
+
+</div>
