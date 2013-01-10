@@ -2,6 +2,8 @@ class PurseController < ApplicationController
   def account
   	@come_in_bill = ComeInBill.new
   	@cost_bill = CostBill.new
+  	@come_in_bills = ComeInBill.all
+  	@cost_bills = CostBill.all
   end
 
   def setup_types
