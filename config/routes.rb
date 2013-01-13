@@ -1,5 +1,6 @@
 MrChen::Application.routes.draw do
-  
+ 
+  post "purse/create_come_in_bill" 
   get "purse/setup_types"
   get "purse/account"
   get "home/index"

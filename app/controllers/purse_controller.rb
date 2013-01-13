@@ -10,4 +10,8 @@ class PurseController < ApplicationController
   	@cost_type = CostType.new
   	@come_in_type = ComeInType.new
   end
+
+  def create_come_in_bill
+    render :text => "hello, render text"
+  end
 end

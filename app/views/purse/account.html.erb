@@ -1,3 +1,4 @@
+
 <div class="tabbable"> <!-- Only required for left/right tabs -->
   <ul class="nav nav-tabs">
     <li class="active"><a href="#tab1" data-toggle="tab">收入明细</a></li>
@@ -6,41 +7,42 @@
   <div class="tab-content">
 
     <div class="tab-pane active" id="tab1">
+    
      <%= form_for @come_in_bill, :html => { :class => 'form-horizontal' } do |f| %>
-  <div class="control-group">
-    <%= f.label "金额", :class => 'control-label' %>
+     <table>
+      <tr>
+<td><%= f.label "金额", :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :money, :class => 'text_field' %>
     </div>
-  </div>
-
-  <div class="control-group">
-          <%= f.label "日期", :class => 'control-label' %>
+  </td>
+<td><%= f.label "类型", :class => 'control-label' %>
+    <div class="controls">
+      <%= select("come_in_type", "id", ComeInType.all.collect {|c| [ c.name, c.id ] }, { :prompt => "--选择收入类型--", :selected => @come_in_bill.come_in_type_id}, {:class => 'text_field'}) %>
+    </div>
+  </td>
+  </tr>
+  <tr>
+<td>  <%= f.label "日期", :class => 'control-label' %>
           <div class="controls">
             <div class="input-append date" id="dp2" data-date="12-02-2012" data-date-format="yyyy/mm/dd">
               <%= f.text_field :billdate, :class => 'text_field', :readonly => 'readonly' %>
               <span class="add-on"><i class="icon-calendar"> </i></span>
             </div>
-          </div>
-   </div>
-
-  <div class="control-group">
-    <%= f.label "类型", :class => 'control-label' %>
-    <div class="controls">
-      <%= select("come_in_type", "id", ComeInType.all.collect {|c| [ c.name, c.id ] }, { :prompt => "--选择收入类型--", :selected => @come_in_bill.come_in_type_id}, {:class => 'text_field'}) %>
-    </div>
-  </div>
-
-  <div class="control-group">
-    <%= f.label "备注", :class => 'control-label' %>
+          </div></td>
+<td>    <%= f.label "备注", :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :remarks, :class => 'text_field' %>
-    </div>
-  </div>
+    </div></td>
 
-  <div class="form-actions">
-    <%= f.submit "新增记录", :class => 'btn btn-primary' %>
-  </div>
+  </tr>
+  <tr>
+    <td></td>
+    <td align='right'><input class='btn btn-primary', type='button', value='新增记录', onClick="create_come_in_bill()"></td>
+  </tr>
+  </table>
+
+    
 <% end %>
 
 <br/>
@@ -54,6 +56,7 @@
     </tr>
   </thead>
   <tbody>
+    
     <% @come_in_bills.each do |come_in_bill| %>
       <tr>
         <td><%= come_in_bill.come_in_type.name %></td>
@@ -70,48 +73,56 @@
         </td>
       </tr>
     <% end %>
+<div id="new_come_in_bill"></div>
   </tbody>
 </table>
-
+  
     </div>
    
     <div class="tab-pane" id="tab2">
 <%= form_for @cost_bill, :html => { :class => 'form-horizontal' } do |f| %>
-  <div class="control-group">
+<table>
+<tr>
+<td>
     <%= f.label "金额", :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :money, :class => 'text_field' %>
     </div>
-  </div>
-
-    <div class="control-group">
-          <%= f.label "日期", :class => 'control-label' %>
+    </td>
+<td> 
+  <%= f.label "类型", :class => 'control-label' %>
+    <div class="controls">
+      <%= select("cost_type", "id", CostType.all.collect {|c| [ c.name, c.id ] }, { :prompt => "--选择支出类型--", :selected => @cost_bill.cost_type_id}, {:class => 'text_field'}) %>
+    </div>
+  </td>
+</tr>
+<tr>
+<td>
+  <%= f.label "日期", :class => 'control-label' %>
           <div class="controls">
             <div class="input-append date" id="dp1" data-date="12-02-2012" data-date-format="yyyy/mm/dd">
               <%= f.text_field :billdate, :class => 'text_field', :readonly => 'readonly' %>
               <span class="add-on"><i class="icon-calendar"> </i></span>
             </div>
           </div>
-  </div>
-  <div class="control-group">
-    <%= f.label "类型", :class => 'control-label' %>
-    <div class="controls">
-      <%= select("cost_type", "id", CostType.all.collect {|c| [ c.name, c.id ] }, { :prompt => "--选择支出类型--", :selected => @cost_bill.cost_type_id}, {:class => 'text_field'}) %>
-    </div>
-  </div>
+        </td>
+<td>
 
-    <div class="control-group">
     <%= f.label "备注", :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :remarks, :class => 'text_field' %>
     </div>
-</div>
-  <div class="form-actions">
+    </td>
+</tr>
+<tr>
+<td></td>
+<td align="right">
     <%= f.submit "新增记录", :class => 'btn btn-primary' %>
-  </div>
+</td>
+</tr>
+</table>
 <% end %>
           <br/>
-
           <table class="table table-striped">
   <thead>
     <tr>
@@ -145,3 +156,4 @@
   </div>
 
 </div>
+

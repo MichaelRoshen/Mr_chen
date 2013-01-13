@@ -14,4 +14,5 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require bootstrap-datepicker-zh_CN
+//= require my_effect 
 //= require_tree .
