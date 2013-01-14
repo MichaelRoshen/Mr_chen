@@ -1,23 +1,27 @@
- function create_come_in_bill()  
- {  
-  alert("xxxx");
- var xmlhttp;  
-    if (window.XMLHttpRequest)  
-    {// code for IE7+, Firefox, Chrome, Opera, Safari  
-         xmlhttp=new XMLHttpRequest();  
-    }  
-    else  
-     {// code for IE6, IE5  
-         xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");  
-     }  
-     //回调函数  
-     xmlhttp.onreadystatechange=function()  
-    {  
-        if (xmlhttp.readyState==4 && xmlhttp.status==200)  
-         {  
-            document.getElementById("new_come_in_bill").innerHTML="haha";  
-        }  
-     }  
-     xmlhttp.open("POST","/purse/create_come_in_bill");  
-     xmlhttp.send();  
-   }  
+$(document).ready(function(){
+    var come_in_bill_money = $("#come_in_bill_money");
+    var come_in_type = $("#come_in_type_id");  
+    var billdate = $("#come_in_bill_billdate");  
+    var remarks = $("#come_in_bill_remarks");    
+    $("#bt_create_cib").click(function(){
+        alert("hello");
+        var v_money = come_in_bill_money.val();
+        var v_come_in_type = come_in_type.val();  
+        var v_date= billdate.val();  
+        var v_remarks = remarks.val();    
+        $.post("create_come_in_bill", {  
+           money: v_money, 
+           type: v_come_in_type, 
+           date: v_date,
+           remarks: v_remarks  
+       },  
+       function(data) {  
+        var come_in_bill = "";
+        come_in_bill += "<tr><td>" + "" +"</td>"
+        come_in_bill += "<td>" + data["money"] +"</td>"
+        come_in_bill += "<td>" + data["billdate"] +"</td></tr>"
+        $("#table_cil").append(come_in_bill);
+    },  
+    "json")  
+    });
+});

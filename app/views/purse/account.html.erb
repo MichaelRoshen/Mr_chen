@@ -8,7 +8,7 @@
 
     <div class="tab-pane active" id="tab1">
     
-     <%= form_for @come_in_bill, :html => { :class => 'form-horizontal' } do |f| %>
+     <%= form_for @come_in_bill, :html => { :class => 'form-horizontal' ,:id => "form_cib"} do |f| %>
      <table>
       <tr>
 <td><%= f.label "金额", :class => 'control-label' %>
@@ -38,7 +38,7 @@
   </tr>
   <tr>
     <td></td>
-    <td align='right'><input class='btn btn-primary', type='button', value='新增记录', onClick="create_come_in_bill()"></td>
+    <td align='right'><input class='btn btn-primary', type='button', value='新增记录', id="bt_create_cib" ></td>
   </tr>
   </table>
 
@@ -46,7 +46,7 @@
 <% end %>
 
 <br/>
-<table class="table table-striped">
+<table class="table table-striped" id="table_cil">
   <thead>
     <tr>
       <th></th>
@@ -80,7 +80,7 @@
     </div>
    
     <div class="tab-pane" id="tab2">
-<%= form_for @cost_bill, :html => { :class => 'form-horizontal' } do |f| %>
+<%= form_for @cost_bill, :html => { :class => 'form-horizontal' ,:id => "form_cb"} do |f| %>
 <table>
 <tr>
 <td>
@@ -117,7 +117,7 @@
 <tr>
 <td></td>
 <td align="right">
-    <%= f.submit "新增记录", :class => 'btn btn-primary' %>
+    <%= f.submit "新增记录", :class => 'btn btn-primary'%>
 </td>
 </tr>
 </table>
