@@ -59,16 +59,15 @@
     
     <% @come_in_bills.each do |come_in_bill| %>
       <tr>
+        <input type="hidden" name="come_in_bill_id" value=<%= come_in_bill.id %>>
         <td><%= come_in_bill.come_in_type.name %></td>
         <td><%= come_in_bill.money %></td>
         <td><%= come_in_bill.billdate %></td>
         <td>
-          <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_come_in_bill_path(come_in_bill), :class => 'btn btn-mini' %>
-          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                      come_in_bill_path(come_in_bill),
+          <%= link_to "Edit", edit_come_in_bill_path(come_in_bill), :class => 'btn btn-mini' %>
+          <%= link_to "Destroy", come_in_bill_path(come_in_bill),
                       :method => :delete,
-                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :data => { confirm: 'Are you sure?' },
                       :class => 'btn btn-mini btn-danger' %>
         </td>
       </tr>
@@ -132,17 +131,16 @@
   <tbody>
     <% @cost_bills.each do |cost_bill| %>
       <tr>
+        <input type="hidden" name="cost_bill_id" value=<%= cost_bill.id %>>
         <td><%= cost_bill.cost_type.name %></td>
         <td><%= cost_bill.money %></td>
         <td><%= cost_bill.billdate %></td>
        
         <td>
-          <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_cost_bill_path(cost_bill), :class => 'btn btn-mini' %>
-          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                      cost_bill_path(cost_bill),
+          <%= link_to "Edit", edit_cost_bill_path(cost_bill), :class => 'btn btn-mini' %>
+          <%= link_to "Destroy", cost_bill_path(cost_bill),
                       :method => :delete,
-                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :data => { confirm: 'Are you sure?'},
                       :class => 'btn btn-mini btn-danger' %>
         </td>
       </tr>
