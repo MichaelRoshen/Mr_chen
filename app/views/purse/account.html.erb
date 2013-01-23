@@ -38,7 +38,11 @@
   </tr>
   <tr>
     <td></td>
-    <td align='right'><input class='btn btn-primary', type='button', value='新增记录', id="bt_create_cib" ></td>
+    <td align='right'><input class='btn btn-primary' type='button' value='新增记录' id="bt_create_cib"></td>
+  </tr>
+   <tr>
+    <td></td>
+    <td align='right'><input class='btn btn-primary' type='button' disabled="true" value='更新记录' id="bt_update_cib"></td>
   </tr>
   </table>
 
@@ -64,11 +68,8 @@
         <td><%= come_in_bill.money %></td>
         <td><%= come_in_bill.billdate %></td>
         <td>
-          <%= link_to "Edit", edit_come_in_bill_path(come_in_bill), :class => 'btn btn-mini' %>
-          <%= link_to "Destroy", come_in_bill_path(come_in_bill),
-                      :method => :delete,
-                      :data => { confirm: 'Are you sure?' },
-                      :class => 'btn btn-mini btn-danger' %>
+          <input class='btn btn-mini' type='button' value='修改' id="bt_edit_cib">
+          <input class='btn btn-mini btn-danger' type='button' value='删除' id="bt_destroy_cib">
         </td>
       </tr>
     <% end %>

@@ -1,5 +1,6 @@
 MrChen::Application.routes.draw do
- 
+  post "purse/destroy_come_in_bill"
+  post "purse/edit_come_in_bill"
   post "purse/create_come_in_bill"
   post "purse/create_cost_bill"  
   get "purse/setup_types"
