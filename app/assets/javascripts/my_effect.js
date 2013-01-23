@@ -42,7 +42,6 @@ function EditClick() {
           billdate.attr("value", data["billdate"]);
           remarks.attr("value", data["remarks"]);
         },"json")
-        $("#bt_update_cib").attr('disabled',false);
       }
     });
   });
@@ -72,8 +71,8 @@ $(document).ready(function(){
     come_in_bill += "<td>" + v_come_in_type +"</td>"
     come_in_bill += "<td>" + data["money"] +"</td>"
     come_in_bill += "<td>" + data["billdate"] +"</td>"
-    come_in_bill += "<td><input id='bt_edit_cib' class='btn btn-mini' type='button' value='修改''></a>"
-    come_in_bill += " <input class='btn btn-mini btn-danger' type='button' value='删除' id='bt_destroy_cib'></td></tr>"
+    come_in_bill += "<td><input id='bt_edit_cib' class='btn' type='button' value='修改''></a>"
+    come_in_bill += " <input class='btn btn-primary' type='button' value='删除' id='bt_destroy_cib'></td></tr>"
 
     $("#table_cil").append(come_in_bill);
     DeleteClick();
