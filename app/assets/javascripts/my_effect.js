@@ -29,6 +29,10 @@ function EditClick() {
     $(this).unbind("click");
     $(this).bind("click", function () {
       if ($(this).val() == "修改") {
+        //点击修改后，将更新和取消按钮置为可用
+        $(this).parent().find("input[id='bt_update_cib']").removeAttr("disabled");
+        $(this).parent().find("input[id='bt_quxiao_cib']").removeAttr("disabled");
+        $("table tr input[id='bt_create_cib']").attr("disabled",true);
         var come_in_bill_id = $(this).parent().parent().find("input[type='hidden']").val();
         var come_in_bill_money = $("#come_in_bill_money");
         var come_in_type = $("#come_in_type_id");  
