@@ -66,7 +66,7 @@
               <td>
 
                 <a href="#modal_edit_come_in_bill" role="button" class="btn" data-toggle="modal" data-backdrop="true">修改</a>
-                <%= link_to "修改", edit_come_in_bill_path(come_in_bill), {:class=>"btn", "data-toggle"=>"modal"} %>
+
                 <!-- Modal -->
                 <div id="modal_edit_come_in_bill" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                  <div class="modal-header">
@@ -75,7 +75,6 @@
                  </div>
                  <%= form_for @come_in_bill, :html => { :class => 'form-horizontal' } do |f| %>
                  <div class="modal-body">
-
                   <div class="control-group">
                     <%= f.label "金额", :class => 'control-label' %>
                     <div class="controls">
@@ -96,21 +95,21 @@
                   <div class="control-group">
                     <%= f.label "类型", :class => 'control-label' %>
                     <div class="controls">
-                      <%= select("come_in_type", "id", ComeInType.all.collect {|c| [ c.name, c.id ] }, { :prompt => "--Select come_in_type--", :selected => @come_in_bill.come_in_type_id}, {:class => 'text_field'}) %>
+                      <%= select("come_in_type", "id", ComeInType.all.collect {|c| [ c.name, c.id ] }, { :prompt => "--Select come_in_type--", :selected => @come_in_bill.come_in_type_id}, {:class => 'text_field', :id => "modal_come_in_type_id"}) %>
                     </div>
                   </div>
 
                   <div class="control-group">
                     <%= f.label "备注", :class => 'control-label' %>
                     <div class="controls">
-                      <%= f.text_field :remarks, :class => 'text_field' %>
+                      <%= f.text_field :remarks, :class => 'text_field',:id => "modal_come_in_bill_remarks" %>
                     </div>
                   </div>
 
                 </div>
                 <div class="modal-footer">
+                  <input class='btn btn-primary' type='button' value='保存' id="bt_update_cib">
                  <button class="btn" data-dismiss="modal" aria-hidden="true">取消</button>
-                 <%= f.submit "保存", :class => 'btn btn-primary' %>
                </div>
                <% end %>
              </div>

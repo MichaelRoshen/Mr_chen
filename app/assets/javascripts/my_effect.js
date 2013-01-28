@@ -28,12 +28,13 @@ function EditClick() {
   $("table tr td a[role='button']").each(function () {
     $(this).unbind("click");
     $(this).bind("click", function () {
+      var main_tr = $(this).parent().parent();
+      var come_in_bill_id = $(this).parent().parent().find("input[type='hidden'][name='come_in_bill_id']").val();
+      var come_in_bill_money = $("#modal_come_in_bill_money");
+      var come_in_type = $("#modal_come_in_type_id");  
+      var billdate = $("#modal_come_in_bill_billdate");  
+      var remarks = $("#modal_come_in_bill_remarks");  
       $('#modal_edit_come_in_bill').on('show', function () {
-        var come_in_bill_id = $(this).parent().parent().find("input[type='hidden']").val();
-        var come_in_bill_money = $("#modal_come_in_bill_money");
-        var come_in_type = $("#modal_come_in_type_id");  
-        var billdate = $("#modal_come_in_bill_billdate");  
-        var remarks = $("#modal_come_in_bill_remarks");    
         $.post("edit_come_in_bill", {
           cib_id: come_in_bill_id
         },function(data){
@@ -43,8 +44,39 @@ function EditClick() {
           remarks.attr("value", data["remarks"]);
         },"json")
       });
+      UpdateComeInBill();
+      DeleteClick();
+      EditClick();
     });
   });
+}
+
+//update come_in_bill
+function UpdateComeInBill() {
+  var come_in_bill_money = $("#modal_come_in_bill_money");
+  var come_in_type = $("#modal_come_in_type_id");  
+  var billdate = $("#modal_come_in_bill_billdate");  
+  var remarks = $("#modal_come_in_bill_remarks");  
+  var come_in_bill_id = $("modal_come_in_bill_id");  
+  $("#bt_update_cib").click(function(){
+    $('#modal_edit_come_in_bill').modal('hide');
+    var v_money = come_in_bill_money.val();
+    var v_come_in_type_id = come_in_type.val();
+    var v_come_in_type = $("#modal_come_in_type_id").find("option:selected").text();  
+    var v_date= billdate.val();  
+    var v_remarks = remarks.val();    
+    $.post("update_come_in_bill", {  
+     money: v_money, 
+     come_in_type_id: v_come_in_type_id, 
+     date: v_date,
+     remarks: v_remarks  
+   },  
+   function(data) {  
+      alert("success!~");
+  },  
+  "json")  
+  });
+
 }
 
 //create come_in_bill

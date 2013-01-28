@@ -17,7 +17,6 @@ class PurseController < ApplicationController
     @come_in_bill.come_in_type = @come_in_type
     @come_in_bill.save
     render json: @come_in_bill
-    puts @come_in_bill.to_json
   end
 
   def create_cost_bill
@@ -26,7 +25,6 @@ class PurseController < ApplicationController
    @cost_bill.cost_type = @cost_type
    @cost_bill.save
    render json: @cost_bill
-   puts @cost_bill.to_json
  end
 
  def destroy_come_in_bill
@@ -35,9 +33,19 @@ class PurseController < ApplicationController
    render json: @come_in_bill
  end
 
-  def edit_come_in_bill
+ def edit_come_in_bill
    @come_in_bill = ComeInBill.find(params[:cib_id])
+   session[:cil_id] = params[:cib_id]
    render json: @come_in_bill
  end
+
+ def update_come_in_bill
+  cil_id = session[:cil_id]
+  @come_in_bill = ComeInBill.find(cil_id)
+  @come_in_bill.come_in_type = ComeInType.find(params[:come_in_type_id])
+  @come_in_bill.update_attributes(:money => params[:money], :billdate => params[:date], :remarks => params[:remarks])
+  session[:cil_id] = nil
+  render json: @come_in_bill
+end
 
 end
