@@ -79,7 +79,7 @@
                   <div class="control-group">
                     <%= f.label "金额", :class => 'control-label' %>
                     <div class="controls">
-                      <%= f.text_field :money, :class => 'text_field' %>
+                      <%= f.text_field :money, :class => 'text_field',:id=> "modal_come_in_bill_money" %>
                     </div>
                   </div>
 
@@ -87,7 +87,7 @@
                     <%= f.label "日期", :class => 'control-label' %>
                     <div class="controls">
                       <div class="input-append date" id="dp2" data-date="12-02-2012" data-date-format="yyyy/mm/dd">
-                        <%= f.text_field :billdate, :class => 'text_field', :readonly => 'readonly' %>
+                        <%= f.text_field :billdate, :class => 'text_field', :readonly => 'readonly',:id=> "modal_come_in_bill_billdate" %>
                         <span class="add-on"><i class="icon-calendar"> </i></span>
                       </div>
                     </div>

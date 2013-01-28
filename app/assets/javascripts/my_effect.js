@@ -25,19 +25,15 @@ function DeleteClick() {
 }
 
 function EditClick() {
-  $("table tr input[value='修改']").each(function () {
+  $("table tr td a[role='button']").each(function () {
     $(this).unbind("click");
     $(this).bind("click", function () {
-      if ($(this).val() == "修改") {
-        //点击修改后，将更新和取消按钮置为可用
-        $(this).parent().find("input[id='bt_update_cib']").removeAttr("disabled");
-        $(this).parent().find("input[id='bt_quxiao_cib']").removeAttr("disabled");
-        $("table tr input[id='bt_create_cib']").attr("disabled",true);
+      $('#modal_edit_come_in_bill').on('show', function () {
         var come_in_bill_id = $(this).parent().parent().find("input[type='hidden']").val();
-        var come_in_bill_money = $("#come_in_bill_money");
-        var come_in_type = $("#come_in_type_id");  
-        var billdate = $("#come_in_bill_billdate");  
-        var remarks = $("#come_in_bill_remarks");    
+        var come_in_bill_money = $("#modal_come_in_bill_money");
+        var come_in_type = $("#modal_come_in_type_id");  
+        var billdate = $("#modal_come_in_bill_billdate");  
+        var remarks = $("#modal_come_in_bill_remarks");    
         $.post("edit_come_in_bill", {
           cib_id: come_in_bill_id
         },function(data){
@@ -46,7 +42,7 @@ function EditClick() {
           billdate.attr("value", data["billdate"]);
           remarks.attr("value", data["remarks"]);
         },"json")
-      }
+      });
     });
   });
 }
