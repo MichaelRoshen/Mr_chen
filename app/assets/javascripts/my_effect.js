@@ -106,7 +106,7 @@ $(document).ready(function(){
     come_in_bill += "<td><input id='bt_edit_cib' class='btn' type='button' value='修改''></a>"
     come_in_bill += " <input class='btn btn-primary' type='button' value='删除' id='bt_destroy_cib'></td></tr>"
 
-    $("#table_cil").append(come_in_bill);
+    $("#table_cil").prepend(come_in_bill);
     DeleteClick();
     EditClick();
   },  
@@ -140,7 +140,7 @@ $(document).ready(function(){
     cost_bill += "<td><a class='btn btn-mini' href='/cost_bills/"+ data["id"]+"/edit'><span class='translation_missing' title='translation missing: en.helpers.links.edit'>Edit</span></a>"
     cost_bill += " <a class='btn btn-mini btn-danger' href='/cost_bills/" +data["id"]+ "' rel='nofollow' onclick='deleteCurrentRow(this);'><span class='translation_missing' title='translation missing: en.helpers.links.destroy'>Destroy</span></a></td></tr>"
 
-    $("#table_cb").append(cost_bill);
+    $("#table_cb").prepend(cost_bill);
   },  
   "json")  
   });
