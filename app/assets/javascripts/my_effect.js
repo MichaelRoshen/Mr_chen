@@ -28,7 +28,6 @@ function EditClick() {
   $("table tr td a[role='button']").each(function () {
     $(this).unbind("click");
     $(this).bind("click", function () {
-      var main_tr = $(this).parent().parent();
       var come_in_bill_id = $(this).parent().parent().find("input[type='hidden'][name='come_in_bill_id']").val();
       var come_in_bill_money = $("#modal_come_in_bill_money");
       var come_in_type = $("#modal_come_in_type_id");  
@@ -45,8 +44,6 @@ function EditClick() {
         },"json")
       });
       UpdateComeInBill();
-      DeleteClick();
-      EditClick();
     });
   });
 }
